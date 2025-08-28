@@ -3,13 +3,14 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   eslint: {
-    ignoreDuringBuilds: true, // TEMP: unblock deploys
+    ignoreDuringBuilds: true, // keep deploys unblocked
   },
-  // If builds still fail due to TypeScript errors, you can
-  // temporarily bypass them by uncommenting the block below.
-  // typescript: {
-  //   ignoreBuildErrors: true,
-  // },
+  // Disable CSS optimization (bypasses lightningcss)
+  experimental: {
+    optimizeCss: false,
+  },
+  // If TypeScript errors block the build, you can temporarily enable:
+  // typescript: { ignoreBuildErrors: true },
 };
 
 export default nextConfig;
